@@ -38,16 +38,6 @@
       "count": 0
     },
     {
-      "id": 26,
-      "userId": 1,
-      "name": "toast chee crackers",
-      "fat": 12,
-      "carb": 23,
-      "protein": 6,
-      "date": 1,
-      "count": 1
-    },
-    {
       "id": 29,
       "userId": 2,
       "name": "beef",
@@ -138,24 +128,14 @@
       "count": 0
     },
     {
-      "id": 38,
-      "userId": 1,
-      "name": "chix sandwich",
-      "fat": 7.2,
-      "carb": 51,
-      "protein": 25,
-      "date": 2,
-      "count": 1
-    },
-    {
-      "id": 39,
-      "userId": 1,
-      "name": "sprite",
+      "name": "beans 1/4cup",
       "fat": 0,
-      "carb": 39,
-      "protein": 0,
+      "carb": 9.5,
+      "protein": 3.5,
+      "userId": 1,
+      "count": 0,
       "date": 2,
-      "count": 2
+      "id": 38
     }
   ],
   "counts": []
