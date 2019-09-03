@@ -12,7 +12,6 @@ export default class FoodList extends Component {
     weight: 0,
     userName: "",
     password: ""
-    
   };
 
   handleFieldChange = evt => {
@@ -22,7 +21,6 @@ export default class FoodList extends Component {
   };
 
   updateExistingUser = () => {
-
     let editedUser = {
       id: Number(sessionStorage.getItem("userId")),
       userName: this.state.userName,
@@ -47,6 +45,19 @@ export default class FoodList extends Component {
     this.setState({ action: "edit" });
   };
 
+  compare = (a, b) => {
+    let nameA = a.name.toUpperCase();
+    let nameB = b.name.toUpperCase();
+
+    let comparison = 0;
+    if (nameA > nameB) {
+      comparison = 1;
+    } else if (nameA < nameB) {
+      comparison = -1;
+    }
+    return comparison;
+  };
+
   componentDidMount() {
     return DataManager.get("users", sessionStorage.getItem("userId")).then(
       user => {
@@ -61,39 +72,38 @@ export default class FoodList extends Component {
 
   render() {
     let weight = this.state.weight;
-    let fatGoal = (weight * 0.3287).toFixed(1);
-    let carbGoal = (weight * 0.7397).toFixed(1);
-    let proteinGoal = (weight * 1.1232).toFixed(1);
+    let fatGoal = (weight * 0.3611).toFixed(1);
+    let carbGoal = (weight * 0.8888).toFixed(1);
+    let proteinGoal = (weight * 1.1388).toFixed(1);
+
     return (
       <div>
         <div className="d-flex flex-row justify-content-center">
-
-        <label className="mt-2 mb-2">Weight:</label>
-        &nbsp;
-        <input
-          type="text"
-          className="form-control-sm mt-2 mb-2"
-          id="weight"
-          placeholder={weight}
-          onChange={this.handleFieldChange}
-        />
-        <button
-          type="button"
-          className="btn mt-2 mb-2 btn-secondary btn-sm"
-          onClick={() => {
-            this.updateExistingUser();
-            
-          }}
-        >
-          Save Weight
-        </button>
+          <label className="mt-2 mb-2">Weight:</label>
+          &nbsp;
+          <input
+            type="text"
+            className="form-control-sm mt-2 mb-2"
+            id="weight"
+            placeholder={weight}
+            onChange={this.handleFieldChange}
+          />
+          <button
+            type="button"
+            className="btn mt-2 mb-2 btn-secondary btn-sm"
+            onClick={() => {
+              this.updateExistingUser();
+            }}
+          >
+            Save Weight
+          </button>
         </div>
-        <section className="d-flex flex-wrap border border-primary rounded container">
+        <section className="d-flex flex-wrap border border-primary rounded container pre-scrollable">
           {this.props.foods
             .filter(
               food =>
                 Number(food.userId) === Number(sessionStorage.getItem("userId"))
-            )
+            ).sort()
             .map(food => (
               <FoodCard
                 key={food.id}
@@ -170,20 +180,30 @@ export default class FoodList extends Component {
             <tbody>
               <tr>
                 <td>Fat</td>
+                <td>
+                  {(fatGoal - localStorage.getItem("fatSoFar")).toFixed(1)}
+                </td>
                 <td>{Number(localStorage.getItem("fatSoFar")).toFixed(1)}</td>
-                <td>{(fatGoal-localStorage.getItem("fatSoFar")).toFixed(1)}</td>
                 <td>{fatGoal}</td>
               </tr>
               <tr>
                 <td>Carbs</td>
+                <td>
+                  {(carbGoal - localStorage.getItem("carbSoFar")).toFixed(1)}
+                </td>
                 <td>{Number(localStorage.getItem("carbSoFar")).toFixed(1)}</td>
-                <td>{(carbGoal-localStorage.getItem("carbSoFar")).toFixed(1)}</td>
                 <td>{carbGoal}</td>
               </tr>
               <tr>
                 <td>Protein</td>
-                <td>{Number(localStorage.getItem("proteinSoFar")).toFixed(1)}</td>
-                <td>{(proteinGoal-localStorage.getItem("proteinSoFar")).toFixed(1)}</td>
+                <td>
+                  {(proteinGoal - localStorage.getItem("proteinSoFar")).toFixed(
+                    1
+                  )}
+                </td>
+                <td>
+                  {Number(localStorage.getItem("proteinSoFar")).toFixed(1)}
+                </td>
                 <td>{proteinGoal}</td>
               </tr>
             </tbody>
