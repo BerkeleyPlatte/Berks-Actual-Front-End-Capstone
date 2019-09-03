@@ -396,7 +396,7 @@
       "carb": 1,
       "protein": 24,
       "date": 30,
-      "count": 7
+      "count": 0
     },
     {
       "id": 84,
@@ -438,14 +438,14 @@
       "id": 87
     },
     {
+      "id": 88,
+      "userId": 1,
       "name": "red beans and rice 1/2cup",
       "fat": 1.5,
       "carb": 20,
       "protein": 5,
-      "userId": 1,
-      "count": 0,
       "date": 30,
-      "id": 88
+      "count": 0
     },
     {
       "name": "beets 1/2cup",
@@ -528,14 +528,14 @@
       "id": 96
     },
     {
+      "id": 97,
+      "userId": 1,
       "name": "green beans",
       "fat": 0,
       "carb": 7,
       "protein": 1,
-      "userId": 1,
-      "count": 0,
       "date": 30,
-      "id": 97
+      "count": 0
     },
     {
       "id": 98,
@@ -644,7 +644,7 @@
       "carb": 33,
       "protein": 15,
       "date": 2,
-      "count": 1
+      "count": 0
     },
     {
       "name": "q",
