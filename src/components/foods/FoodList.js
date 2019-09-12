@@ -72,8 +72,8 @@ export default class FoodList extends Component {
 
   render() {
     let weight = this.state.weight;
-    let fatGoal = (weight * 0.3611).toFixed(1);
-    let carbGoal = (weight * 0.8888).toFixed(1);
+    let fatGoal = (weight * 0.3777).toFixed(1);
+    let carbGoal = (weight * 0.9722).toFixed(1);
     let proteinGoal = (weight * 1.1388).toFixed(1);
 
     return (
@@ -103,7 +103,8 @@ export default class FoodList extends Component {
             .filter(
               food =>
                 Number(food.userId) === Number(sessionStorage.getItem("userId"))
-            ).sort()
+            )
+            .sort()
             .map(food => (
               <FoodCard
                 key={food.id}
@@ -180,29 +181,29 @@ export default class FoodList extends Component {
             <tbody>
               <tr>
                 <td>Fat</td>
+                <td>{Number(localStorage.getItem("fatSoFar")).toFixed(1)}</td>
                 <td>
                   {(fatGoal - localStorage.getItem("fatSoFar")).toFixed(1)}
                 </td>
-                <td>{Number(localStorage.getItem("fatSoFar")).toFixed(1)}</td>
                 <td>{fatGoal}</td>
               </tr>
               <tr>
                 <td>Carbs</td>
+                <td>{Number(localStorage.getItem("carbSoFar")).toFixed(1)}</td>
                 <td>
                   {(carbGoal - localStorage.getItem("carbSoFar")).toFixed(1)}
                 </td>
-                <td>{Number(localStorage.getItem("carbSoFar")).toFixed(1)}</td>
                 <td>{carbGoal}</td>
               </tr>
               <tr>
                 <td>Protein</td>
                 <td>
+                  {Number(localStorage.getItem("proteinSoFar")).toFixed(1)}
+                </td>
+                <td>
                   {(proteinGoal - localStorage.getItem("proteinSoFar")).toFixed(
                     1
                   )}
-                </td>
-                <td>
-                  {Number(localStorage.getItem("proteinSoFar")).toFixed(1)}
                 </td>
                 <td>{proteinGoal}</td>
               </tr>

@@ -86,7 +86,7 @@ export default class FoodCard extends Component {
       <div>
         <div key={this.props.food.id} className="thing shadow rounded w-auto">
           <button
-            className={this.props.food.count === 0 ? "btn btn-light" : "btn btn-info"}
+            className={this.props.food.count === 0 ? "btn btn-outline-primary" : "btn btn-info"}
             onClick={this.clickParent}
           >
             {this.props.food.name}
