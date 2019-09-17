@@ -225,6 +225,22 @@ class AppViews extends Component {
             }
           }}
         /> */}
+        <Route
+          exact
+          path="/history"
+          render={props => {
+            return (
+              <History
+                {...props}
+                fatSoFar={this.state.fatSoFar}
+                carbSoFar={this.state.carbSoFar}
+                proteinSoFar={this.state.proteinSoFar}
+                makeMacrosArrs={this.makeMacrosArrs}
+                foods={this.state.foods}
+              />
+            );
+          }}
+        />
       </React.Fragment>
     );
   }
