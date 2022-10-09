@@ -72,8 +72,10 @@ export default class FoodList extends Component {
     let fatGoal = (weight * this.state.fatFactor).toFixed(1);
     let carbGoal = (weight * this.state.carbFactor).toFixed(1);
     let proteinGoal = (weight * this.state.proteinFactor).toFixed(1);
-    let sodiumGoal = (weight * this.state.sodiumFactor).toFixed(1);
-    let fiberGoal = (weight * this.state.fiberFactor).toFixed(1);
+    // let sodiumGoal = (weight * this.state.sodiumFactor).toFixed(1);
+    let sodiumGoal = 2300;
+    // let fiberGoal = (weight * this.state.fiberFactor).toFixed(1);
+    let fiberGoal = 38;
     return (
       <div>
         <div className="d-flex flex-row justify-content-center">
